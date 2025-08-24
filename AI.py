@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, send_file
+from flask import Flask, render_template, request
 import cv2
 import numpy as np
 from werkzeug.utils import secure_filename
@@ -83,5 +83,5 @@ def create_pencil_sketch(input_path, filename):
     cv2.imwrite(output_path, sketch)
     return output_path
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# 👇 Important: don't run app.run() here, Render uses Gunicorn
+# Just leave app defined so Gunicorn can find it
